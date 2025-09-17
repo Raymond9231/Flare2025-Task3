@@ -1,0 +1,20 @@
+BASE: ["preprocess_base.yaml"]
+
+TRAINING_TYPE: 'fine'
+# stage1 - preprocess
+MR_DATA_PREPROCESS:
+  STAGE: 1
+
+INFERENCE:
+  IS_OVERWRITE_PREDICT_MASK: True
+  SAVE_SOFTMAX: False
+
+VERSION: "preprocess_step1_FakeMR"
+
+# final stage
+DATASET:
+  TRAIN_IMAGE_PATH: '/databak/results/lichangrui/datasets/large_Model/New_Mode/Step1_psudoPET/Pre_256/CT-PET/Img-2'
+  TRAIN_MASK_PATH: '/databak/results/lichangrui/datasets/large_Model/New_Mode/Step1_psudoPET/Pre_256/CT/Seg-Img'
+  IS_ABDOMEN_CROP: False
+  FINE:
+    PROPRECESS_PATH: "/databak/results/lichangrui/datasets/large_Model/New_Mode/Step1_psudoPET/PreSeg/FakePET-2"

@@ -1,0 +1,20 @@
+BASE: ["preprocess_base.yaml"]
+
+TRAINING_TYPE: 'fine'
+# stage1 - preprocess
+MR_DATA_PREPROCESS:
+  STAGE: 1
+
+INFERENCE:
+  IS_OVERWRITE_PREDICT_MASK: True
+  SAVE_SOFTMAX: False
+
+VERSION: "preprocess_step1_CT"
+
+# final stage
+DATASET:
+  TRAIN_IMAGE_PATH: '/home/raymond9231/flare/Refine/Raw/train_CT_gt_label/imagesTr'
+  TRAIN_MASK_PATH: '/home/raymond9231/flare/Refine/Raw/train_CT_gt_label/labelsTr'
+  IS_ABDOMEN_CROP: True
+  FINE:
+    PROPRECESS_PATH: "/home/raymond9231/flare/Refine/Pre/CT"

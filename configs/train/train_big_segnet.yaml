@@ -1,0 +1,20 @@
+BASE: ["train_base.yaml"]
+FINE_MODEL_PATH: "/databak/results/lichangrui/datasets/large_Model/New_Mode/Step2_BigSegnet_Model/checkpoint-2"
+DIS: True
+TRAIN:
+  EPOCHS: 500
+  SAVE_PERIOD: 5
+DATASET:
+  DA:
+    DO_2D_AUG: True
+    DO_ELASTIC: True
+DATASET:
+  DATASET_NAME: 'CT_fakePET'
+  FINE:
+    SPLIT_PREPROCESS_PATH: [
+      '/databak/results/lichangrui/datasets/large_Model/New_Mode/Step1_psudoPET/PreSeg/CT',
+      '/databak/results/lichangrui/datasets/large_Model/New_Mode/Step1_psudoPET/PreSeg/FakePET-2'
+    ]
+    PROPRECESS_PATH: "/databak/results/lichangrui/datasets/large_Model/New_Mode/Step1_psudoPET/PreSeg"
+
+

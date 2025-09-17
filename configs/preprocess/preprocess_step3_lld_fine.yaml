@@ -1,0 +1,13 @@
+BASE: ["preprocess_step2_lld.yaml"]
+VERSION: "preprocess_step3_lld_fine"
+# final stage
+DATASET:
+  TRAIN_IMAGE_PATH: 'MR/Training/PLabel_image/LLD-MMRI-3984'   # set preprocessed data save path
+  TRAIN_MASK_PATH: 'MR/Training/PLabel/LLD-MMRI-3984' # set preprocessed data lable save path
+  IS_ABDOMEN_CROP: False
+  COARSE:
+    PROPRECESS_PATH: "processed_data/coarse/small_segnet/MR_lld_stage3"
+  FINE:
+    PROPRECESS_PATH: "processed_data/fine/small_segnet/MR_lld_stage3"
+    SIZE: [ 96, 192, 192 ]
+    PREPROCESS_SIZE: [ 192, 192, 96 ]

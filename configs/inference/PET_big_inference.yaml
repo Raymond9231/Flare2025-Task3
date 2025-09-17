@@ -1,0 +1,28 @@
+BASE: ['inference_base.yaml']
+TRAINING_TYPE: 'fine'
+VAL_OUTPUT_PATH: "/home/raymond9231/flare/2024-1/Random1000Out" # The path of inference output directory.
+#FINE_MODEL_PATH: "/home/raymond9231/flare/PET_checkpoints" # The path of the downloaded checkpoint directory.
+CHECK_POINT_NAME: "500_checkpoint.pth"
+DATASET:
+  DATASET_NAME: 'VAL'
+  VAL_IMAGE_PATH: '/home/raymond9231/flare/2024-1/FLARE_Test'
+  VAL_CHANGE_SPACING: False
+  DA:
+    DO_MIRROR: False
+  FINE:
+    SIZE: [ 96, 192, 192 ]
+    PREPROCESS_SIZE: [ 192, 192, 96 ]
+
+MODEL:
+  FINE:
+    BASE_NUM_FEATURES: 16
+    MAX_NUM_FEATURES: 200
+    DEPTHS: [2, 2, 2, 2]
+    NUM_HEADS: [4, 4, 4, 4]
+    WINDOW_SIZE: [3, 4, 4]
+    MLP_RATIO: 1.
+    DROP_PATH_RATE: 0.1
+
+VAL:
+  IS_CROP: False
+  TTA: True

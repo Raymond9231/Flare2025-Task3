@@ -1,0 +1,20 @@
+BASE: ["preprocess_base.yaml"]
+
+TRAINING_TYPE: 'fine'
+# stage1 - preprocess
+MR_DATA_PREPROCESS:
+  STAGE: 1
+
+INFERENCE:
+  IS_OVERWRITE_PREDICT_MASK: True
+  SAVE_SOFTMAX: False
+
+VERSION: "preprocess_step1_FakePET"
+
+# final stage
+DATASET:
+  TRAIN_IMAGE_PATH: '/databak/results/lichangrui/datasets/CT_50_GT/i2i_PET'
+  TRAIN_MASK_PATH: '/databak/results/lichangrui/datasets/CT_50_GT/Seg'
+  IS_ABDOMEN_CROP: False
+  FINE:
+    PROPRECESS_PATH: "/databak/results/lichangrui/Previous_Models/DAR-UNet/processed_data/fine/big_segnet/FakePET"

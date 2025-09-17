@@ -1,0 +1,20 @@
+BASE: ["train_base.yaml"]
+FINE_MODEL_PATH: "/home/raymond9231/flare/Refine/ModelCKPT"
+DIS: True
+TRAIN:
+  EPOCHS: 500
+  SAVE_PERIOD: 5
+DATASET:
+  DA:
+    DO_2D_AUG: True
+    DO_ELASTIC: True
+DATASET:
+  DATASET_NAME: 'ACCCT_RealPET'
+  FINE:
+    SPLIT_PREPROCESS_PATH: [
+      '/home/raymond9231/flare/Refine/Pre/CT',
+      '/home/raymond9231/flare/Refine/Pre/PET'
+    ]
+    PROPRECESS_PATH: "/home/raymond9231/flare/Refine/Pre"
+WORLD_SIZE: 1
+
